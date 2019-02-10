@@ -16,8 +16,15 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from django.urls import path, include
+from blog import views
+
+from rest_framework import routers
+router = routers.DefaultRouter()
+router.register(r'apipost',views.PostViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'',include('blog.urls'))
+    url(r'',include('blog.urls')),
+    path('api-auth/',include('rest_framework.urls',namespace='rest_framework')),
 ]
+urlpatterns += router.urls

@@ -12,7 +12,9 @@
             <div class="page-header">
                 <h1><a href="/">Hackthings</a></h1>
                 {% if user.is_authenticated %}
-                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <div id="plusbtn">
+                <a href="{% url 'post_new' %}" class="top-menu" ><span class="glyphicon glyphicon-plus"  style="background-position: center;"></span></a>
+            </div>
                 {% endif %}
             </div>
             <div class="content container">
